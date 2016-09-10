@@ -19,12 +19,12 @@
 				var self	 = this,
 					el 		 = self.el = document.getElementById(id)
 					bindings = {} // the internal copy
-					data 	 = self.data = {} // the external interface
-					content  = el.innerHTML.replace(/\{\{(.*)\}\}/g, markToken)
+					data 	 = self.data = {} // the external interface 内部转化后的数据
+					content  = el.innerHTML.replace(/\{\{(.*)\}\}/g, markToken) //将html中的标签绑定到bindings中
 
 				el.innerHTML = content
 
-				for (var variable in bindings) {
+				for (var variable in bindings) {//将绑定的数据转化为setter getter类型到data中
 					bind(variable)
 				}
 
